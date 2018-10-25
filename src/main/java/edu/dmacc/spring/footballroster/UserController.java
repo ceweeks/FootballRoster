@@ -17,7 +17,7 @@ public class UserController {
 	@RequestMapping(value = "/form")
 		public ModelAndView player() {
 			ModelAndView modelAndView = new ModelAndView();
-			modelAndView.setViewName("playerForm");
+			modelAndView.setViewName("pages/playerForm.jsp");
 			modelAndView.addObject("player", new Player());
 			modelAndView.addObject("grades", grades);
 			return modelAndView;
@@ -27,7 +27,7 @@ public class UserController {
 		public ModelAndView processPlayer(Player player) {
 			ModelAndView modelAndView = new ModelAndView();
 			dao.insertPlayer(player);
-			modelAndView.setViewName("playerResult");
+			modelAndView.setViewName("pages/playerResult.jsp");
 			modelAndView.addObject("p", player);
 			return modelAndView;
 		}
@@ -36,7 +36,7 @@ public class UserController {
 		public ModelAndView viewAll() {
 			ModelAndView modelAndView = new ModelAndView();
 			List<Player> allPlayers = dao.getAllPlayers();
-			modelAndView.setViewName("viewAllPlayers");
+			modelAndView.setViewName("pages/viewAllPlayers.jsp");
 			modelAndView.addObject("all", allPlayers);
 			return modelAndView;
 	}
